@@ -190,6 +190,21 @@
     font-size: 12.5px;
     margin-bottom: 6px;
   }
+
+  /* Sub-projects nested inside an Experience entry */
+  .sub-projects {
+    margin-top: 10px;
+    padding-left: 14px;
+    border-left: 2px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sub-projects .project { margin-bottom: 0; }
+  .sub-projects h3 { font-size: 13.5px; }
+  .sub-projects .lede { font-size: 12px; padding: 6px 10px; }
+  .sub-projects ul.bullets li { font-size: 12px; }
+  .sub-projects .when { font-size: 12px; }
   .lede {
     color: var(--muted);
     font-size: 12.5px;
@@ -270,7 +285,44 @@
             <h3>비전스페이스 · 연구원</h3>
             <span class="when">2025.11 — 재직 중</span>
           </div>
-          <div class="sub">VLA · ACT 기반 로봇 모방학습 플랫폼 개발</div>
+          <div class="sub">VLA · ACT 기반 로봇 모방학습 플랫폼 및 산업 도메인 멀티모달 AI 어시스턴트 개발</div>
+
+          <div class="sub-projects">
+            <article class="project">
+              <div class="row">
+                <h3>VLA · ACT 통합 로봇 모방학습 플랫폼</h3>
+                <span class="when">2025.11 — 2026.03</span>
+              </div>
+              <p class="lede">
+                로봇 시연 데이터 수집부터 VLA/ACT 정책 학습 · 추론 · 평가 · 데이터 관리까지 전 과정을 통합한
+                End-to-End 로봇 시뮬레이션 기반 학습 플랫폼 개발.
+              </p>
+              <ul class="bullets">
+                <li>MuJoCo 기반 SOARM-101 환경에서 Teleoperation과 Jacobian IK Heuristic을 결합한 이중 수집 파이프라인 설계 — 데이터 수집 속도 <strong>40% 향상</strong>.</li>
+                <li>LeRobot 오픈소스 커스터마이징으로 SmolVLA · ACT 정책을 연동, 데이터 수집 → 학습 → 추론 → 검증을 단일 환경에 통합 — 실험 모니터링 및 디버깅 시간 <strong>2배 단축</strong>.</li>
+                <li>물체 배치 랜덤화 등 Domain Randomization 적용 및 자동 평가 파이프라인 구성으로 시뮬레이션 환경 내 Task 성공률 <strong>80% 이상</strong> 달성.</li>
+                <li>VLA/ACT 정책의 반복적 성능 비교를 위한 MuJoCo-WASM 기반 웹 실험 환경 구축 — 실험 운영 효율 향상.</li>
+              </ul>
+              <div class="link-line">소개 영상 — <a href="https://www.youtube.com/watch?v=jPdjTp4Qb24">youtube.com/watch?v=jPdjTp4Qb24</a></div>
+            </article>
+
+            <article class="project">
+              <div class="row">
+                <h3>산업 도메인 지식 기반 멀티모달 AI 어시스턴트</h3>
+                <span class="when">2025.11 — 2026.03</span>
+              </div>
+              <p class="lede">
+                관련 문서(PDF · CSV · TEXT) · 이미지 · 내부 지식베이스를 통합 이해하는 멀티모달 AI 어시스턴트.
+                LangGraph 기반 ReAct 에이전트와 Hybrid RAG를 적용한 도메인 특화 QA 시스템 구현.
+              </p>
+              <ul class="bullets">
+                <li>Supervisor – Planner – Agent 3계층 상태 오케스트레이션과 Fail-safe 설계로 자유형 에이전트의 치명 오류인 무한 루프 발생 <strong>0건</strong> 달성.</li>
+                <li>질의 의도에 따라 VLM(의미 해석)과 SigLIP(크로스모달 검색) 역할을 분리한 동적 라우팅 파이프라인 구축 — 불필요한 LLM 추론 방지 및 검색 Latency 단축.</li>
+                <li>BM25(Keyword) + FAISS(Vector) Hybrid RAG와 Reranker 적용으로 로봇 · 설비 문서 검색 정확도와 근거 기반 응답 품질 향상.</li>
+                <li>vLLM · Ollama 기반 Multi-Provider Gateway 자체 구축으로 On-Premise(폐쇄망) 환경 운영 안정성 확보.</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -323,43 +375,6 @@
 
       <section>
         <h2>Projects</h2>
-
-        <article class="project">
-          <div class="row">
-            <h3>VLA · ACT 통합 로봇 모방학습 플랫폼</h3>
-            <span class="when">2025.11 — 2026.03</span>
-          </div>
-          <div class="project-org">비전스페이스 · End-to-End 로봇 시뮬레이션 학습 플랫폼</div>
-          <p class="lede">
-            로봇 시연 데이터 수집부터 VLA/ACT 정책 학습 · 추론 · 평가 · 데이터 관리까지 전 과정을 통합한
-            End-to-End 로봇 시뮬레이션 기반 학습 플랫폼 개발.
-          </p>
-          <ul class="bullets">
-            <li>MuJoCo 기반 SOARM-101 환경에서 Teleoperation과 Jacobian IK Heuristic을 결합한 이중 수집 파이프라인 설계 — 데이터 수집 속도 <strong>40% 향상</strong>.</li>
-            <li>LeRobot 오픈소스 커스터마이징으로 SmolVLA · ACT 정책을 연동, 데이터 수집 → 학습 → 추론 → 검증을 단일 환경에 통합 — 실험 모니터링 및 디버깅 시간 <strong>2배 단축</strong>.</li>
-            <li>물체 배치 랜덤화 등 Domain Randomization 적용 및 자동 평가 파이프라인 구성으로 시뮬레이션 환경 내 Task 성공률 <strong>80% 이상</strong> 달성.</li>
-            <li>VLA/ACT 정책의 반복적 성능 비교를 위한 MuJoCo-WASM 기반 웹 실험 환경 구축 — 실험 운영 효율 향상.</li>
-          </ul>
-          <div class="link-line">소개 영상 — <a href="https://www.youtube.com/watch?v=jPdjTp4Qb24">youtube.com/watch?v=jPdjTp4Qb24</a></div>
-        </article>
-
-        <article class="project">
-          <div class="row">
-            <h3>산업 도메인 지식 기반 멀티모달 AI 어시스턴트</h3>
-            <span class="when">2025.11 — 2026.03</span>
-          </div>
-          <div class="project-org">LangGraph ReAct 에이전트 · Hybrid RAG · On-Premise</div>
-          <p class="lede">
-            관련 문서(PDF · CSV · TEXT) · 이미지 · 내부 지식베이스를 통합 이해하는 멀티모달 AI 어시스턴트.
-            LangGraph 기반 ReAct 에이전트와 Hybrid RAG를 적용한 도메인 특화 QA 시스템 구현.
-          </p>
-          <ul class="bullets">
-            <li>Supervisor – Planner – Agent 3계층 상태 오케스트레이션과 Fail-safe 설계로 자유형 에이전트의 치명 오류인 무한 루프 발생 <strong>0건</strong> 달성.</li>
-            <li>질의 의도에 따라 VLM(의미 해석)과 SigLIP(크로스모달 검색) 역할을 분리한 동적 라우팅 파이프라인 구축 — 불필요한 LLM 추론 방지 및 검색 Latency 단축.</li>
-            <li>BM25(Keyword) + FAISS(Vector) Hybrid RAG와 Reranker 적용으로 로봇 · 설비 문서 검색 정확도와 근거 기반 응답 품질 향상.</li>
-            <li>vLLM · Ollama 기반 Multi-Provider Gateway 자체 구축으로 On-Premise(폐쇄망) 환경 운영 안정성 확보.</li>
-          </ul>
-        </article>
 
         <article class="project">
           <div class="row">
